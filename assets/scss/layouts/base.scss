@@ -1,0 +1,22 @@
+body {
+  background-color: $broken-white;
+  color: $dark-grey;
+}
+.text {
+  &-grey {
+    color: $grey !important;
+    color: darken($dark-white, 5%) !important;
+  }
+
+  &-decoration-none {
+    text-decoration: none !important;
+  }
+
+  &-underline {
+    text-decoration: underline !important;
+  }
+}
+
+.radius {
+  border-radius: 1.25rem !important;
+}

@@ -13,12 +13,22 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
+  loading: "@/components/Loading.vue",
+  proxy: {
+    "/api": {
+      target: process.env.API_QURAN,
+      pathRewrite: { "^/api": "/" },
+    },
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ["@/assets/scss/app.scss"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: "@/plugins/overlay", ssr: false }],
+  plugins: [
+    { src: "@/plugins/overlay", ssr: false },
+    { src: "@/plugins/hello", ssr: false },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -35,11 +45,17 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: "/",
-  },
+  axios: { browserBaseURL: "/api", proxy: true },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    loaders: {
+      sass: {
+        implementation: require("sass"),
+      },
+      scss: {
+        implementation: require("sass"),
+      },
+    },
+  },
 };
