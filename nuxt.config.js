@@ -12,6 +12,13 @@ export default {
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    script: [
+      {
+        src: "https://kit.fontawesome.com/163ae98d1f.js",
+        async: true,
+        crossorigin: "anonymous",
+      },
+    ],
   },
   loading: "@/components/Loading.vue",
   proxy: {

@@ -6,10 +6,12 @@
           <b-card class="radius" border-variant="light">
             <b-row align-h="between" class="pb-3">
               <b-col cols="4" class="number">{{ item.number }}</b-col>
-              <b-col cols="4" class="text-right">Love</b-col>
+              <b-col cols="4" class="text-right">
+                <i class="fas fa-heart"></i>
+              </b-col>
             </b-row>
             <h5>{{ item.name.transliteration.en }}</h5>
-            <p class="text-grey">{{ item.revelation.en }}</p>
+            <p class="text-grey">{{ item.name.translation.id }}</p>
           </b-card>
         </NuxtLink>
       </b-col>

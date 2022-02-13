@@ -1,11 +1,13 @@
 <template>
   <b-container class="p-3">
-    <b-button pill variant="info" class="mb-2" @click="$router.go(-1)">Back</b-button>
-    <b-row cols="1" cols-sm="1" cols-md="2" cols-lg="2">
-      <b-col v-for="(item, index) in surah" :key="index" class="mb-4 pointer">
+    <b-button pill variant="info" class="mb-2" @click="$router.go(-1)">
+      <i class="fas fa-chevron-left mr-2"></i> Back
+    </b-button>
+    <b-row cols="1" cols-sm="1" cols-md="1" cols-lg="1">
+      <b-col v-for="(item, index) in surah" :key="index" class="mb-4">
         <b-card class="radius" border-variant="light">
           <b-row align-h="between" align-v="start" class="pb-3">
-            <b-col cols="2" class="number">{{ item.number.inQuran }}:{{ total }}</b-col>
+            <b-col cols="2" class="number">{{ item.number.inSurah }}:{{ total }}</b-col>
             <b-col cols="9" class="text-right text-arab">{{ item.text.arab }}</b-col>
           </b-row>
           <h5>English - Sahih International | See Tafsir</h5>
