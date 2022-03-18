@@ -50,6 +50,24 @@ export default {
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
     "cookie-universal-nuxt",
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: 'AIzaSyD-QJExxf2SdaJKHBASQ-_oXYlninJDhrE',
+          authDomain: 'tes-db-vue-2.firebaseapp.com',
+          projectId: 'tes-db-vue-2',
+          storageBucket: 'tes-db-vue-2.appspot.com',
+          messagingSenderId: '920167290244',
+          appId: '1:920167290244:web:b3eea1af9359a0843639d1',
+          measurementId: '<measurementId>'
+        },
+        services: {
+          auth: true,
+          database: true,
+        }
+      }
+    ]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -66,4 +84,7 @@ export default {
       },
     },
   },
+  server: {
+    port: 8000 // default: 3000
+  }
 };
