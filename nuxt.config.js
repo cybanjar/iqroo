@@ -54,12 +54,12 @@ export default {
       '@nuxtjs/firebase',
       {
         config: {
-          apiKey: 'AIzaSyD-QJExxf2SdaJKHBASQ-_oXYlninJDhrE',
-          authDomain: 'tes-db-vue-2.firebaseapp.com',
-          projectId: 'tes-db-vue-2',
-          storageBucket: 'tes-db-vue-2.appspot.com',
-          messagingSenderId: '920167290244',
-          appId: '1:920167290244:web:b3eea1af9359a0843639d1',
+          apiKey: process.env.FIREBASE_API_KEY,
+          authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+          projectId: process.env.FIREBASE_PROJECT_ID,
+          storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+          messagingSenderId: process.env.FIREBASE_MESS_SENDER_ID,
+          appId: process.env.FIREBASE_APP_ID,
           measurementId: '<measurementId>'
         },
         services: {
