@@ -7,7 +7,7 @@
       <b-col v-for="(item, index) in surah" :key="index" class="mb-4">
         <b-card class="radius" border-variant="light">
           <b-row align-h="between" align-v="start" class="pb-3">
-            <b-col cols="2" class="number">{{ item.number.inSurah }}:{{ total }}</b-col>
+            <b-col cols="2" class="number">{{ item.number.inSurah }}/{{ total }}</b-col>
             <b-col cols="9" class="text-right text-arab">{{ item.text.arab }}</b-col>
           </b-row>
           <h5>English - Sahih International | See Tafsir</h5>
@@ -45,8 +45,10 @@ export default {
         })
         .catch((err) => {
           console.error(err);
+        })
+        .then(() => {
+          this.$overlay(false);
         });
-      this.$overlay(false);
     },
     back() {
       return this.$router.go(-1);

@@ -2,7 +2,7 @@
 <script>
 export default {
   asyncData({ redirect, store }) {
-    return redirect("/home");
+    return redirect("/quran");
   },
 };
 </script>
