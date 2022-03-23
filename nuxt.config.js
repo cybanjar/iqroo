@@ -26,6 +26,10 @@ export default {
       target: process.env.API_QURAN,
       pathRewrite: { "^/api": "/" },
     },
+    "/api/hadist": {
+      target: process.env.API_HADIST,
+      pathRewrite: { "^/api/hadist": "/" },
+    },
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

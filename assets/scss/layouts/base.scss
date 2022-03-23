@@ -5,7 +5,11 @@ body {
 .text {
   &-grey {
     color: $grey !important;
-    color: darken($dark-white, 5%) !important;
+    color: darken($dark-white, 15%) !important;
+  }
+
+  &-green {
+    color: $green !important;
   }
 
   &-decoration-none {
@@ -18,7 +22,7 @@ body {
 }
 
 .radius {
-  border-radius: 1.25rem !important;
+  border-radius: $border-radius-md;
 }
 
 .pointer {
@@ -31,4 +35,30 @@ a {
     color: darken($green, 5%);
     text-decoration: none !important;
   }
+}
+
+.logo {
+  border-radius: 50%;
+}
+
+a.nuxt-link-active {
+  font-weight: bold;
+}
+
+a.nuxt-link-exact-active {
+  color: $green;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.caption {
+  white-space: pre-wrap;
+  color: $grey !important;
+  color: darken($dark-white, 15%) !important;
+}
+
+label {
+  margin-bottom: 0.15rem;
 }
