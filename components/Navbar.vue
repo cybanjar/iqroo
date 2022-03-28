@@ -19,6 +19,20 @@
             <nuxt-link to="/hadist">Hadist</nuxt-link>
           </b-nav-item>
         </b-navbar-nav>
+
+        <b-navbar-nav right>
+          <b-nav-item>
+            <nuxt-link to="/login">Login</nuxt-link>
+          </b-nav-item>
+        </b-navbar-nav>
+
+        <!-- <b-nav-item-dropdown right>
+          <template #button-content>
+            <em>User</em>
+          </template>
+          <b-dropdown-item href="#">Profile</b-dropdown-item>
+          <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+        </b-nav-item-dropdown> -->
       </b-collapse>
     </b-navbar>
   </div>

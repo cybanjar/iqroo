@@ -5,9 +5,11 @@
 @import "components/modal";
 @import "components/button";
 @import "components/audio";
+@import "components/card";
 
 // Layouts
 @import "layouts/base";
 
 // Pages
 @import "pages/home";
+@import "pages/login";

@@ -26,9 +26,9 @@ export default {
       target: process.env.API_QURAN,
       pathRewrite: { "^/api": "/" },
     },
-    "/api/hadist": {
+    "/api/v2": {
       target: process.env.API_HADIST,
-      pathRewrite: { "^/api/hadist": "/" },
+      pathRewrite: { "^/api/v2": "/" },
     },
   },
 
