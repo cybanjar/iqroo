@@ -2,6 +2,7 @@ body {
   background-color: $broken-white;
   color: $dark-grey;
 }
+
 .text {
   &-grey {
     color: $grey !important;
@@ -19,6 +20,10 @@ body {
   &-underline {
     text-decoration: underline !important;
   }
+}
+
+p {
+  font-weight: 300;
 }
 
 .radius {
