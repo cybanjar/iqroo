@@ -18,7 +18,7 @@
             <b-col cols="9" class="text-right text-arab">{{ item.text.arab }}</b-col>
           </b-row>
           <p class="text-grey">{{ item.translation.id }}</p>
-          <b-button class="no-padding" variant="link" @click="showTafsir(item)">Tafsir</b-button>
+          <b-button class="no-padding mb-2" variant="link" @click="showTafsir(item)">Tafsir</b-button>
           <div>
             <audio controls>
               <source :src="item.audio.primary" type="audio/mpeg">
@@ -63,6 +63,9 @@ export default {
     },
     showTafsir(val) {
       this.$bvModal.msgBoxOk(val.tafsir.id.long, {
+          title: val.translation.id,
+          headerClass: 'p-3 border-bottom-0',
+          footerClass: 'p-3 border-top-0',
           centered: true
         })
     }

@@ -1,3 +1,7 @@
+.modal-title {
+    font-size: 1rem;
+}
+
 .modal-content {
     border-radius: $border-radius;
     border: 0;
@@ -19,4 +23,5 @@
     height: 60vh;
     overflow-y: auto;
     white-space: pre-wrap;
+    color: $text-grey;
 }

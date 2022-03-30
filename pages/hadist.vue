@@ -3,9 +3,8 @@
     <h1 class="py-3">Hadits</h1>
     
     <b-row class="pb-3" align-v="center">
-      <b-col cols="3">
+      <b-col cols="12" sm="6" md="6" lg="6" xl="6">
         <b-form-input v-model="search.value" placeholder="Ex: ahmad"></b-form-input>
-        {{ search.value }}
       </b-col>
     </b-row>
 

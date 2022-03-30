@@ -1,21 +1,21 @@
 <template>
   <b-container class="p-3">
     <b-row align-h="between" align-v="center">
-      <b-col cols="2" class="mr-auto p-3">
+      <b-col cols="6" xl="2" class="mr-auto p-3">
           <b-button pill class="mb-2" @click="$router.go(-1)">
             <i class="fas fa-chevron-left mr-2"></i> Back
           </b-button>
       </b-col>
-      <b-col cols="2 mx-auto" class="p-3">
+      <b-col cols="6 mx-auto" xl="3" class="p-3">
         <h5 class="text-capitalize">HR. {{ $route.params.id }}</h5>
       </b-col>
-      <b-col cols="2" class="p-3">
+      <b-col cols="4" xl="3" class="p-3">
         <b-form-group label="Mode" v-slot="{ ariaDescribedby }">
           <b-form-radio v-model="search.number" :aria-describedby="ariaDescribedby" name="some-radios" :value="true">Number</b-form-radio>
           <b-form-radio v-model="search.number" :aria-describedby="ariaDescribedby" name="some-radios" :value="false">Range</b-form-radio>
         </b-form-group>
       </b-col>
-      <b-col v-if="search.number" cols="2" class="p-3">
+      <b-col v-if="search.number" cols="6" xl="3" class="p-3">
         <label for="number">Number hadist</label>
         <b-form-input
           @keypress.enter="load"
@@ -26,8 +26,8 @@
           trim />
       </b-col>
 
-      <b-col v-if="!search.number" cols="2" class="p-3">
-        <label for="from">Hadist from</label>
+      <b-col v-if="!search.number" cols="4" xl="2" class="p-3">
+        <label for="from" class="text-grey">Hadist from</label>
         <b-form-input
           @keypress.enter="load"
           id="from" 
@@ -36,8 +36,8 @@
           type="number"
           trim />
       </b-col>
-      <b-col v-if="!search.number" cols="2" class="p-3">
-        <label for="to"> Hadist to</label>
+      <b-col v-if="!search.number" cols="4" xl="2" class="p-3">
+        <label for="to" class="text-grey">Hadist to</label>
         <b-form-input
           @keypress.enter="load"
           id="to"

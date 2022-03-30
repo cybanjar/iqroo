@@ -1,19 +1,13 @@
 <template>
   <b-container class="p-3">
     <h1>Al-Qur'an</h1>
+
     <b-row class="py-3" align-v="center">
-      <b-col cols="3">
+      <b-col cols="12" sm="12" md="12" lg="3" xl="3">
         <b-form-input v-model="search.value" placeholder="Ex: al-fatihah"></b-form-input>
       </b-col>
-      <b-col cols="9">
-        <span class="text-uppercase font-weight-bold text-grey">Popular:</span> 
-        <NuxtLink :to="`/surah/36`"> Yasin </NuxtLink> |
-        <NuxtLink :to="`/surah/56`"> Al-Waqi'ah </NuxtLink> |
-        <NuxtLink :to="`/surah/67`"> Al-Mulk </NuxtLink> |
-        <NuxtLink :to="`/surah/61`"> As-Saff </NuxtLink> |
-        <NuxtLink :to="`/surah/18`"> Al-Kahf </NuxtLink> |
-        <NuxtLink :to="`/surah/55`"> Ar-Rahman </NuxtLink> |
-        <NuxtLink :to="`/surah/53`"> Ar-Najm </NuxtLink>
+      <b-col cols="12" sm="12" md="12" lg="9" xl="9">
+        <Popular />
       </b-col>
     </b-row>
     <h6 class="text-center text-danger pt-5" v-if="surahs.length === 0">Waiting or check your network</h6>
@@ -38,8 +32,12 @@
 </template>
 
 <script>
+import Popular from '@/components/pages/Popular'
 import _ from "lodash";
 export default {
+  components: {
+    Popular
+  },
   data() {
     return {
       surahs: [],

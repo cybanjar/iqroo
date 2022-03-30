@@ -20,11 +20,11 @@
           </b-nav-item>
         </b-navbar-nav>
 
-        <b-navbar-nav right>
+        <!-- <b-navbar-nav right>
           <b-nav-item>
             <nuxt-link to="/login">Login</nuxt-link>
           </b-nav-item>
-        </b-navbar-nav>
+        </b-navbar-nav> -->
 
         <!-- <b-nav-item-dropdown right>
           <template #button-content>

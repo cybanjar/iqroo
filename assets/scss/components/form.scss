@@ -1,0 +1,7 @@
+.form-control {
+
+  &:focus {
+    border-color: $green;
+    box-shadow: none;
+  }
+}
