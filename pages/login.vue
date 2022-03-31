@@ -56,13 +56,9 @@ export default {
       login: false,
     }
   },
-  mounted() {
-    this.initFirebase()
+  mounted () {
   },
   methods: {
-    initFirebase() {
-
-    },
     onReset(event) {
       event.preventDefault()
       this.form.email = ''
@@ -79,6 +75,12 @@ export default {
         await this.$fire.auth.signInWithEmailAndPassword(this.form.email, this.form.password)
         .then((response) => {
           console.log(response)
+          this.$store.set('session/token', response.user._delegate.accessToken)
+          this.$store.set('session/user', response.user._delegate)
+
+          return this.$store.dispatch('session/init')
+        })
+        .then(() => {
           this.$router.push('/')
         })
         .catch((err) => {
