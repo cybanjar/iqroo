@@ -1,0 +1,86 @@
+body {
+  background-color: $broken-white;
+  color: $dark-grey;
+}
+
+.text {
+  &-grey {
+    color: $grey !important;
+    color: darken($dark-white, 15%) !important;
+  }
+
+  &-green {
+    color: $green !important;
+  }
+
+  &-decoration-none {
+    text-decoration: none !important;
+  }
+
+  &-underline {
+    text-decoration: underline !important;
+  }
+}
+
+p {
+  font-weight: 300;
+}
+
+.radius {
+  border-radius: $border-radius-md;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+a {
+  color: $dark-grey;
+  &:hover {
+    color: darken($green, 5%);
+    text-decoration: none !important;
+  }
+}
+
+.logo {
+  border-radius: 50%;
+}
+
+a.nuxt-link-active {
+  font-weight: bold;
+}
+
+a.nuxt-link-exact-active {
+  color: $green;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.caption {
+  white-space: pre-wrap;
+  color: $grey !important;
+  color: darken($dark-white, 15%) !important;
+}
+
+label {
+  margin-bottom: 0.15rem;
+}
+
+.scrollTop {
+  position: -webkit-sticky;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: $grey;
+  padding: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 30%;
+  
+  &:hover {
+    opacity: 100%;
+    color: $white;
+  }
+}

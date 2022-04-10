@@ -1,0 +1,27 @@
+.modal-title {
+    font-size: 1rem;
+}
+
+.modal-content {
+    border-radius: $border-radius;
+    border: 0;
+    height: 50vh;
+}
+
+.modal-footer {
+    justify-content: flex-start;
+}
+
+.modal-border {
+    border: 1px solid $gray-200;
+    border-radius: 0.3rem;
+
+}
+
+.modal-body {
+    word-break: break-word;
+    height: 60vh;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    color: $text-grey;
+}
