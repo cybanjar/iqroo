@@ -33,7 +33,6 @@ export const actions = {
 
 
   },
-
   loadToken ({ commit }) {
     commit('token', this.$cookies.get('session/token'))
   }

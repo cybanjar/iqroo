@@ -71,10 +71,10 @@
       <b-col v-for="item in data.hadiths" :key="item.id" class="mb-4">
         <b-card class="radius" border-variant="light">
           <b-row align-h="between" align-v="start" class="pb-3">
-            <b-col cols="2" class="number">
+            <b-col cols="12" sm="2" md="2" lg="2" xl="2"  class="number">
               {{ item.number }}
             </b-col>
-            <b-col cols="9" class="text-right">
+            <b-col cols="12" sm="9" md="9" lg="9" xl="9" class="text-right">
               <h4 class="text-right text-arab">{{ item.arab }}</h4>
             </b-col>
           </b-row>

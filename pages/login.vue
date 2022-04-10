@@ -73,11 +73,11 @@ export default {
 
       try {
         await this.$fire.auth.signInWithEmailAndPassword(this.form.email, this.form.password)
-        .then((response) => {
-          console.log(response)
-          this.$store.set('session/token', response.user._delegate.accessToken)
-          this.$store.set('session/user', response.user._delegate)
+        .then((userCredential) => {
 
+          this.$store.set('session/token', userCredential.user._delegate.accessToken)
+          this.$store.set('session/user', userCredential.user._delegate)
+          
           return this.$store.dispatch('session/init')
         })
         .then(() => {

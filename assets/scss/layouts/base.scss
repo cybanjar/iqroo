@@ -67,3 +67,20 @@ a.nuxt-link-exact-active {
 label {
   margin-bottom: 0.15rem;
 }
+
+.scrollTop {
+  position: -webkit-sticky;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: $grey;
+  padding: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 30%;
+  
+  &:hover {
+    opacity: 100%;
+    color: $white;
+  }
+}

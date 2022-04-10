@@ -17,7 +17,7 @@
           <b-row align-h="between" align-v="center" class="pb-3">
             <b-col cols="4" class="number">{{ item.number }}</b-col>
             <b-col cols="4" class="text-right">
-              <i @click="bookmark" class="fas fa-bookmark"></i>
+              <i v-if="auth" @click="bookmark" class="fas fa-bookmark pointer"></i>
             </b-col>
           </b-row>
           <NuxtLink :to="`/surah/${item.number}`">
@@ -47,6 +47,9 @@ export default {
     };
   },
   computed: {
+    auth () {
+      return this.$cookies.get('session/token')
+    },
     filtedSurah() {
       let tempSurahs = this.surahs
 
@@ -79,7 +82,7 @@ export default {
         });
     },
     bookmark() {
-      alert("bookmark");
+      alert('Development!')
     },
     showTafsir(item) {
       this.$bvModal.msgBoxOk(item.tafsir.id, {

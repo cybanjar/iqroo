@@ -18,22 +18,49 @@
           <b-nav-item href="#">
             <nuxt-link to="/hadist">Hadist</nuxt-link>
           </b-nav-item>
+          <b-nav-item>
+            <nuxt-link to="/about">About</nuxt-link>
+          </b-nav-item>
         </b-navbar-nav>
 
-        <b-navbar-nav right>
+        <!-- <b-navbar-nav v-if="!auth" right>
           <b-nav-item>
             <nuxt-link to="/login">Login</nuxt-link>
           </b-nav-item>
         </b-navbar-nav>
 
-        <!-- <b-nav-item-dropdown right>
+        <b-nav-item-dropdown v-else right>
           <template #button-content>
-            <em>User</em>
+            User
           </template>
           <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+          <b-dropdown-item @click="logoutUser">Sign Out</b-dropdown-item>
         </b-nav-item-dropdown> -->
       </b-collapse>
     </b-navbar>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    auth () {
+      return this.$cookies.get('session/token')
+    },
+  },
+  methods: {
+    async logoutUser() {
+      await this.$fire.auth.signOut()
+      .then(() => {
+        this.$cookies.remove('session/token')
+        this.$cookies.remove('session/user')
+
+        this.$router.replace("/login")
+      })
+      .catch((err) => {
+        console.log(err.message)
+      })
+    },
+  }
+}
+</script>

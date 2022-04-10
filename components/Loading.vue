@@ -1,7 +1,7 @@
 <template>
   <div class="loading-overlay" v-if="loading">
     <div class="loading-container">
-      <img class="loading-item" src="@/assets/image/icon.svg" alt="Icon Privy" />
+      <img class="loading-item" src="@/assets/image/send.svg" alt="Icon Loading" />
     </div>
   </div>
 </template>
