@@ -1,3 +1,12 @@
+import dotenv from 'dotenv'
+
+let path =
+  process.env.NODE_ENV === 'production'
+   ? '.env'
+   : '.env.' + process.env.NODE_ENV
+
+dotenv.config({path})
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {

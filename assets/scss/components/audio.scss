@@ -1,19 +1,16 @@
-audio:hover, audio:focus, audio:active {
-    -webkit-box-shadow: 15px 15px 20px rgba(47,191,160, 0.4);
-    -moz-box-shadow: 15px 15px 20px rgba(47,191,160, 0.4);
-    box-shadow: 15px 15px 20px rgba(47,191,160, 0.4);
-    -webkit-transform: scale(1.05);
-    -moz-transform: scale(1.05);
-    transform: scale(1.05);
+audio:focus, audio:active {
+    -webkit-box-shadow: 2px 8px 20px rgba(0,0,0, 0.16);
+    -moz-box-shadow: 2px 8px 20px rgba(0,0,0, 0.16);
+    box-shadow: 2px 8px 20px rgba(0,0,0, 0.16);
 }
 
 
 audio {
-    -webkit-transition:all 0.5s ease-in-out;
-    -moz-transition:all 0.5s ease-in-out;
-    -o-transition:all 0.5s ease-in-out;
-    transition:all 0.5s ease-in-out;
-    -moz-border-radius: $border-radius;
-    -webkit-border-radius: $border-radius;
-    border-radius: $border-radius;
+    -webkit-transition:all 0.37s ease-in-out;
+    -moz-transition:all 0.37s ease-in-out;
+    -o-transition:all 0.37s ease-in-out;
+    transition:all 0.37s ease-in-out;
+    -moz-border-radius: $border-full;
+    -webkit-border-radius: $border-full;
+    border-radius: $border-full;
 }
