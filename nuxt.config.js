@@ -101,6 +101,9 @@ export default {
       scss: {
         implementation: require("sass"),
       },
+      babel: {
+        compact: true
+      }
     },
   },
   server: {
