@@ -89,6 +89,10 @@ export default {
     ]
   ],
 
+  bootstrapVue: {
+    icons: false,
+  },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: { browserBaseURL: "/api", proxy: true },
 
@@ -101,9 +105,6 @@ export default {
       scss: {
         implementation: require("sass"),
       },
-      babel: {
-        compact: true
-      }
     },
   },
   server: {
