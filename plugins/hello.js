@@ -1,5 +1,5 @@
 export default (context, inject) => {
-  inject("hello", (msg) => {
-    alert(msg);
-  });
-};
+  inject('hello', (msg) => {
+    alert(msg)
+  })
+}

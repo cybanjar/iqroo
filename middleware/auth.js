@@ -7,7 +7,7 @@ export default function ({ store, redirect, app, route }) {
       ? _.get(m.components, 'default.options.auth', true) // Browser
       : _.get(m.components, 'default._Ctor.options.auth', true) // SSR
   })
-  
+
   if (!token && isAuth)
     return redirect('/login', route.path !== '/' ? { redirect: route.path } : null)
 

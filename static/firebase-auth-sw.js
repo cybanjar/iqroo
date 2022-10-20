@@ -1,4 +1,8 @@
-const ignorePaths = ["\u002F__webpack_hmr","\u002F_loading","\u002F_nuxt\u002F"]
+const ignorePaths = [
+  '\u002F__webpack_hmr',
+  '\u002F_loading',
+  '\u002F_nuxt\u002F',
+]
 
 importScripts(
   'https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js'
@@ -6,7 +10,9 @@ importScripts(
 importScripts(
   'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js'
 )
-firebase.initializeApp({"apiKey":"AIzaSyD-QJExxf2SdaJKHBASQ-_oXYlninJDhrE","authDomain":"tes-db-vue-2.firebaseapp.com","projectId":"tes-db-vue-2","storageBucket":"tes-db-vue-2.appspot.com","messagingSenderId":"920167290244","appId":"1:920167290244:web:b3eea1af9359a0843639d1","measurementId":"\u003CmeasurementId\u003E"})
+firebase.initializeApp({
+  apiKey           : 'AIzaSyD-QJExxf2SdaJKHBASQ-_oXYlninJDhrE', authDomain       : 'tes-db-vue-2.firebaseapp.com', projectId        : 'tes-db-vue-2', storageBucket    : 'tes-db-vue-2.appspot.com', messagingSenderId: '920167290244', appId            : '1:920167290244:web:b3eea1af9359a0843639d1', measurementId    : '\u003CmeasurementId\u003E',
+})
 
 // Initialize authService
 const authService = firebase.auth()
@@ -27,9 +33,8 @@ const getIdToken = () => {
         }, () => {
           resolve(null)
         })
-      } else {
+      } else
         resolve(null)
-      }
     })
   })
 }
@@ -37,20 +42,19 @@ const getIdToken = () => {
 const fetchWithAuthorization = async (original, idToken) => {
   // Clone headers as request headers are immutable.
   const headers = new Headers()
-  for (let entry of original.headers.entries()) {
+  for (const entry of original.headers.entries())
     headers.append(entry[0], entry[1])
-  }
 
   // Add ID token to header.
-  headers.append('Authorization', 'Bearer ' + idToken)
+  headers.append('Authorization', `Bearer ${idToken}`)
 
   // Create authorized request
   const { url, ...props } = original.clone()
-  const authorized = new Request(url, {
+  const authorized        = new Request(url, {
     ...props,
-    mode: 'same-origin',
+    mode    : 'same-origin',
     redirect: 'manual',
-    headers
+    headers,
   })
 
   return fetch(authorized)
@@ -62,19 +66,18 @@ self.addEventListener('fetch', (event) => {
   const expectsHTML = event.request.headers.get('accept').includes('text/html')
 
   const isSameOrigin = self.location.origin === url.origin
-  const isHttps = (self.location.protocol === 'https:' || self.location.hostname === 'localhost' || self.location.hostname === '127.0.0.1')
+  const isHttps      = (self.location.protocol === 'https:' || self.location.hostname === 'localhost' || self.location.hostname === '127.0.0.1')
 
-  const isIgnored = ignorePaths.some(path => {
-    if (typeof path === 'string') {
+  const isIgnored = ignorePaths.some((path) => {
+    if (typeof path === 'string')
       return url.pathname.startsWith(path)
-    }
 
     return path.test(url.pathname.slice(1))
   })
 
   // https://github.com/nuxt-community/firebase-module/issues/465
   if (!expectsHTML || !isSameOrigin || !isHttps || isIgnored) {
-      event.respondWith(fetch(event.request))
+    event.respondWith(fetch(event.request))
 
     return
   }
@@ -84,7 +87,7 @@ self.addEventListener('fetch', (event) => {
   // in offline mode.
   event.respondWith(
     getIdToken().then(
-      idToken => idToken
+      (idToken) => idToken
         // if the token was retrieved we attempt an authorized fetch
         // if anything goes wrong we fall back to the original request
         ? fetchWithAuthorization(event.request, idToken).catch(() => fetch(event.request))
@@ -95,6 +98,6 @@ self.addEventListener('fetch', (event) => {
 })
 
 // In service worker script.
-self.addEventListener('activate', event => {
+self.addEventListener('activate', (event) => {
   event.waitUntil(clients.claim())
 })

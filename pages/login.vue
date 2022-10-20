@@ -1,9 +1,14 @@
 <template>
   <b-container fluid>
-    <b-row align-h="center" align-v="center">
+    <b-row
+      align-h="center"
+      align-v="center">
       <b-col cols="4">
         <div class="login">
-          <b-form @submit.prevent="loginUser" @reset="onReset" v-if="show">
+          <b-form
+            @submit.prevent="loginUser"
+            @reset="onReset"
+            v-if="show">
             <b-form-group
               id="input-email"
               label="Email"
@@ -14,24 +19,28 @@
                 v-model="form.email"
                 type="email"
                 required
-              ></b-form-input>
+              />
             </b-form-group>
 
             <b-form-group
-              id="input-password" 
-              label="Password" 
+              id="input-password"
+              label="Password"
               label-for="password"
             >
               <b-form-input
-                type="password" 
+                type="password"
                 id="password"
                 v-model="form.password"
                 required
-              ></b-form-input>
+              />
             </b-form-group>
 
-            <b-button type="submit" variant="primary">Login</b-button>
-            <b-button type="reset" variant="outline-danger">Reset</b-button>
+            <b-button
+              type="submit"
+              variant="primary">Login</b-button>
+            <b-button
+              type="reset"
+              variant="outline-danger">Reset</b-button>
           </b-form>
           <div class="pt-3">
             Not have account?
@@ -46,53 +55,52 @@
 <script>
 export default {
   layout: 'blank',
-  data() {
+  data () {
     return {
       form: {
-        email: '',
-        password: ''
+        email   : '',
+        password: '',
       },
-      show: true,
+      show : true,
       login: false,
     }
   },
   mounted () {
   },
   methods: {
-    onReset(event) {
+    onReset (event) {
       event.preventDefault()
-      this.form.email = ''
+      this.form.email    = ''
       this.form.password = ''
-      this.show = false
+      this.show          = false
       this.$nextTick(() => {
         this.show = true
       })
     },
-    async loginUser() {
+    async loginUser () {
       this.$overlay(true)
 
       try {
         await this.$fire.auth.signInWithEmailAndPassword(this.form.email, this.form.password)
-        .then((userCredential) => {
+          .then((userCredential) => {
+            this.$store.set('session/token', userCredential.user._delegate.accessToken)
+            this.$store.set('session/user', userCredential.user._delegate)
 
-          this.$store.set('session/token', userCredential.user._delegate.accessToken)
-          this.$store.set('session/user', userCredential.user._delegate)
-          
-          return this.$store.dispatch('session/init')
-        })
-        .then(() => {
-          this.$router.push('/')
-        })
-        .catch((err) => {
-          console.log(err.message)
-        })
-        .then(() => {
-          this.$overlay(false)
-        })
-      } catch (e) {
-        console.error(e.message)
+            return this.$store.dispatch('session/init')
+          })
+          .then(() => {
+            this.$router.push('/')
+          })
+          .catch((err) => {
+            console.error(err.message)
+          })
+          .then(() => {
+            this.$overlay(false)
+          })
+      } catch (err) {
+        console.error(err.message)
       }
     },
-  }
+  },
 }
 </script>

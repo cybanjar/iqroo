@@ -94,3 +94,4 @@ firebase.json
 .firebaserc
 .firebase
 /public
+/static

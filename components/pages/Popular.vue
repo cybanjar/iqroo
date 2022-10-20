@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span class="text-uppercase font-weight-bold text-grey">Popular:</span> 
+    <span class="text-uppercase font-weight-bold text-grey">Popular:</span>
     <NuxtLink :to="`/surah/36`"> Yasin </NuxtLink> |
     <NuxtLink :to="`/surah/56`"> Al-Waqi'ah </NuxtLink> |
     <NuxtLink :to="`/surah/67`"> Al-Mulk </NuxtLink> |
